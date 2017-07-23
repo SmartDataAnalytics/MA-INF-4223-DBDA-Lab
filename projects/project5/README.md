@@ -1,4 +1,4 @@
-## RDF2Rules using Spark framework
+# RDF2Rules using Spark framework
 
 This work is implementation of RDF2Rule work 
 
@@ -14,3 +14,7 @@ The code implements the first two step. The two members of the team have two dif
 
 
 The repository can be found [here](https://github.com/Kunal-Jha/RDF2RuleSansa).  
+
+## Authors
+* [Kunal Jha](https://github.com/Kunal-Jha)
+* [Akhilesh Vyas](https://github.com/vyasakhilesh)
