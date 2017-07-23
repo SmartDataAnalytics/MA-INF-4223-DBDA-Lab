@@ -1,0 +1,194 @@
+\begin{thebibliography}{10}
+
+\bibitem{url-package}
+Donald Arseneau.
+\newblock url: Verbatim with {URL}-sensitive line breaks.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/url.html}, last
+  viewed April 2010, 1986--2011.
+
+\bibitem{graphicx-package}
+David Carlisle.
+\newblock graphicx: Enhanced support for graphics.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/graphicx.html},
+  last viewed April 2010, 1995--1999.
+
+\bibitem{easyChairDocuments}
+easychair.
+\newblock Easychair document source.
+\newblock \url{http://www.easychair.org/publications/?page=1594225690}.
+
+\bibitem{footmisc-package}
+Robin Fairbairns.
+\newblock footmisc: A range of footnote options.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/footmisc.html},
+  last viewed April 2010, 1986--2009.
+
+\bibitem{rotating-package}
+Robin Fairbairns and Sebastian Rahtz.
+\newblock rotating: Rotation tools, including rotated full-page floats.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/rotating.html},
+  last viewed April 2010, 2001--2009.
+
+\bibitem{algorithm2e-package}
+Christophe Fiorio.
+\newblock algorithm2e: Floating algorithm environment with algorithmic
+  keywords.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/algorithm2e.html},
+  last viewed April 2010, 1986--2009.
+
+\bibitem{lastpage-package}
+Jeffrey Goldberg.
+\newblock lastpage: Reference last page for {Page N of M} type footers.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/lastpage.html},
+  last viewed April 2010, 1986--2010.
+
+\bibitem{pdflatex-instructions}
+Carl Gutwin.
+\newblock Instructions for pdflatex.
+\newblock \url{http://www.cs.usask.ca/~gutwin/gi/pdflatex.htm}, last viewed
+  April 2010, 2006.
+
+\bibitem{empheq-package}
+Morten H{\o}gholm.
+\newblock empheq: {EMPHasizing EQuations}.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/empheq.html},
+  last viewed April 2010, 2002--2007.
+
+\bibitem{texshop}
+Richard Koch, Max Horn, Gerben Wierda, and {Various Contributors}.
+\newblock {\TeX}shop.
+\newblock \url{http://www.texshop.org}, 2001--2011.
+
+\bibitem{easychair-latex-class}
+Serguei~A. Mokhov, Geoff Sutcliffe, and Andrei Voronkov.
+\newblock The {\sf easychair} class file documentation and guide, for authors
+  and editors.
+\newblock [online], 2008--2011.
+\newblock Available at \url{http://easychair.org/easychair.zip}.
+
+\bibitem{listings-package}
+Brooks Moses and Carsten Heinz.
+\newblock listings: Typeset source code listings using {\LaTeX}.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/listings.html},
+  last viewed April 2010, 2006--2007.
+
+\bibitem{eso-pic-package}
+Rolf Niepraschk.
+\newblock eso-pic: Absolute positioning of graphics and ship out actions.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/eso-pic.html},
+  last viewed April 2010, 1998--2009.
+
+\bibitem{pdflscape-package}
+Heiko Oberdiek.
+\newblock pdflscape: Make landscape pages display as landscape.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/pdflscape.html},
+  last viewed April 2010, 2001--2008.
+
+\bibitem{hyperref-package}
+Heiko Oberdiek and Sebastian Rahtz.
+\newblock hyperref: Extensive support for hypertext in {\LaTeX}.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/hyperref.html},
+  last viewed April 2010, 2001--2010.
+
+\bibitem{texlive}
+Sebastian Rahtz, Karl Berry, Manuel P\'egouri\'e-Gonnard, Norbert Preining,
+  Peter Breitenlohner, Reinhard Kotucha, Siep Kroonenberg, Staszek
+  Wawrykiewicz, Tomasz Trzeciak, Vladimir Volovich, and {\TeX user groups}.
+\newblock {{\TeX} Live}.
+\newblock \url{http://tug.org/texlive/}, last viewed April 2010, 1996--2009.
+
+\bibitem{miktex}
+Christian Schenk and {MiK{\TeX} Contributors}.
+\newblock {MiK{\TeX}}.
+\newblock \url{http://miktex.org}, last viewed April 2010, 2008--2011.
+
+\bibitem{mathptmx-package}
+Walter Schmidt, Alan Jeffrey, Sebastian Rahtz, and Ulrik Vieth.
+\newblock mathptmx: Use {Times} as default text font, and provide maths
+  support.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/mathptmx.html},
+  last viewed April 2010, 1986--2009.
+
+\bibitem{helvet-package}
+Walter Schmidt and Sebastian Rahtz.
+\newblock helvet: Font support for common {PostScript} fonts.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/psnfss.html},
+  last viewed April 2010, 1995--2005.
+
+\bibitem{led}
+Adam Sk\'orczy\'nski, Sebastian Deorowicz, and {LEd Contributors}.
+\newblock {LEd} ({\LaTeX} editor).
+\newblock \url{http://latexeditor.org}, last viewed April 2010, 2004--2011.
+
+\bibitem{gmake}
+Richard Stallman, Roland McGrath, Paul Smith, and {the GNU Project}.
+\newblock {GNU Make}.
+\newblock Free Software Foundation, Inc., [online], 1997--2006.
+\newblock \url{http://www.gnu.org/software/make/}.
+
+\bibitem{amsthm-package}
+{The American Mathematical Society}.
+\newblock amsthm: {\LaTeX} package for theorem setup ({AMS} style).
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/amsthm.html},
+  last viewed April 2010, 1995--2004.
+
+\bibitem{ctan}
+{The CTAN team}.
+\newblock {CTAN}: the comprehensive {\TeX} archive network.
+\newblock \url{ctan.org}, 1992--2011.
+
+\bibitem{fink}
+{The Fink Project}.
+\newblock Fink.
+\newblock [online], 2001--2011.
+\newblock \url{http://www.finkproject.org/}.
+
+\bibitem{latexsym-package}
+{The LaTeX Team}.
+\newblock latexsym: Base sources of {\LaTeX}.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/latex-base.html},
+  last viewed April 2010, 1986--2009.
+
+\bibitem{makeidx-package}
+{The LaTeX Team}.
+\newblock latexsym: Standard package for creating indexes.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/makeidx.html},
+  last viewed April 2010, 1986--2009.
+
+\bibitem{geometry-package}
+Hideo Umeki.
+\newblock geometry: Flexible and complete interface to document dimensions.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/geometry.html},
+  last viewed April 2010, 1996--2008.
+
+\bibitem{fancyhdr-package}
+Piet van Oostrum.
+\newblock fancyhdr: Extensive control of page headers and footers in
+  {\LaTeX2e}.
+\newblock
+  \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/fancyhdr.html},
+  last viewed April 2010, 1986--2009.
+
+\bibitem{texniccenter}
+Sven Wiegand and {{\TeX}nicCenter Contributors}.
+\newblock {{\TeX}nicCenter}.
+\newblock \url{http://texniccenter.org}, last viewed April 2010, 1998--2011.
+
+\end{thebibliography}
