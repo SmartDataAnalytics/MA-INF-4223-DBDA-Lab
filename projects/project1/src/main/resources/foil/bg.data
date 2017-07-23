@@ -1,0 +1,7 @@
+p(ann,mary)
+p(ann,tom)
+p(tom,emily)
+p(tom,bill)
+f(ann)
+f(mary)
+f(emily)
