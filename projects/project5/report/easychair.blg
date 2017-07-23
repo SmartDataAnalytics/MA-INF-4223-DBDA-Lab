@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/TeX Live for SUSE Linux)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: easychair.aux
+The style file: plain.bst
+Database file #1: easychair.bib
+You've used 29 entries,
+            2118 wiz_defined-function locations,
+            666 strings with 9893 characters,
+and the built_in function-call counts, 7036 in all, are:
+= -- 654
+> -- 360
+< -- 0
++ -- 146
+- -- 116
+* -- 297
+:= -- 1204
+add.period$ -- 90
+call.type$ -- 29
+change.case$ -- 145
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 203
+empty$ -- 639
+format.name$ -- 116
+if$ -- 1508
+int.to.chr$ -- 0
+int.to.str$ -- 29
+missing$ -- 0
+newline$ -- 151
+num.names$ -- 58
+pop$ -- 264
+preamble$ -- 1
+purify$ -- 116
+quote$ -- 0
+skip$ -- 204
+stack$ -- 0
+substring$ -- 146
+swap$ -- 29
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 116
+warning$ -- 0
+while$ -- 58
+width$ -- 31
+write$ -- 297
