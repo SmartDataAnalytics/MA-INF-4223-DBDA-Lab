@@ -13,6 +13,5 @@ Repository for  Lab “Distributed Big Data Analytics” (MA-INF 4223), Universi
   * [Projects](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/tree/master/WiSe2017_18/projects)
 * [Summer Semester 2017](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/tree/master/SoSe2017)
 
-
-
+##
 [Course Website](http://sda.cs.uni-bonn.de/teaching/dbda/)
