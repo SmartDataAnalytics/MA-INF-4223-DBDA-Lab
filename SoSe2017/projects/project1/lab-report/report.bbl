@@ -1,0 +1,42 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Horvath(2016)]{Horvath2016}
+T.~Horvath.
+\newblock Learning in logic \textrm{V}.
+\newblock In \emph{Learning from Non-Standard Data, WS 2016/17}. University of
+  Bonn, Fraunhofer IAIS, Sankt Augustin, Germany, 2016.
+
+\bibitem[Muggleton and De~Raedt(1994)]{Muggleton1994}
+S.~Muggleton and L.~De~Raedt.
+\newblock Inductive logic programming: Theory and methods.
+\newblock \emph{The Journal of Logic Programming}, 19(20):\penalty0 629--679,
+  1994.
+
+\bibitem[Pazzani and Kibler(1992)]{Pazzani1992}
+M.~Pazzani and D.~Kibler.
+\newblock The utility of knowledge in inductive learning.
+\newblock \emph{Machine Learning}, 9\penalty0 (1):\penalty0 57--94, 1992.
+
+\bibitem[Quinlan(1990)]{Quinlan1990}
+J.R. Quinlan.
+\newblock Learning logical definitions from relations.
+\newblock \emph{Machine Learning}, \penalty0 (5):\penalty0 239--266, 1990.
+
+\bibitem[Quinlan and Cameron-Jones(1993)]{Quinlan1993}
+J.R. Quinlan and R.M. Cameron-Jones.
+\newblock Foil: A midterm report.
+\newblock In \emph{Machine Learning: ECML-93}, pages 3--20. Springer-Verlag,
+  Berlin, Heidelberg, 1993.
+
+\bibitem[Quinlan and Cameron-Jones(1995)]{Quinlan1995}
+J.R. Quinlan and R.M. Cameron-Jones.
+\newblock Induction of logic programs: Foil and related systems.
+\newblock \emph{New Generation Computing}, 13\penalty0 (3):\penalty0 287--312,
+  1995.
+
+\end{thebibliography}
