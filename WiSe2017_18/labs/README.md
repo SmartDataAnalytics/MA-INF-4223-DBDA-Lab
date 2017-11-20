@@ -6,4 +6,4 @@
 
 - [Lab 3: Spark GraphX and Spark SQL operations](https://docs.google.com/document/d/e/2PACX-1vQC-FtlcCWKjvgjCOniBa4Vw5c9YldgVXAJdHzYTUbl3sbeB8xWvCBQ-Q02ezPsQ-5Q05K1bp3b6J0r/pub)
 
-- Lab 4: Spark ML and SANSA
+- [Lab 4: Spark ML and SANSA](https://docs.google.com/document/d/e/2PACX-1vSCeZvDZvcw7w7UdPg8hND_8A0T-7uPoohYWyIXNOByaq5kzKCPp_1L-HeY_QOqQm08e8azfdV_FpCE/pub)
