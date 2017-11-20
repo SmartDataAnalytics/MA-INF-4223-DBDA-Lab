@@ -1,0 +1,1 @@
+## Ranking RDF properties using Spark framework

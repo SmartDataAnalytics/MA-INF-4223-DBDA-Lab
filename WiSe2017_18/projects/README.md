@@ -4,15 +4,15 @@ Besides tutorials and worksheets to be posted publicly at the end of the semeste
 
 You will have to choose one out of possible proposed projects. Each project is designed for group work and recommended to be worked on in groups of 3-4 students. It’s part of the project to work in a team.
 
-1. TBA
+1. [Efficient semantic subgroup discovery using Spark](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/tree/master/WiSe2017_18/projects/project1)
 
-1. TBA
+1. [Kernels for RDF data using Spark](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/tree/master/WiSe2017_18/projects/project2)
 
-1. TBA
+1. [Ranking RDF properties using Spark framework](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/tree/master/WiSe2017_18/projects/project3)
 
-1. TBA
+1. [Distributed Entity Resolution using Spark](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/tree/master/WiSe2017_18/projects/project4)
 
-1. TBA
+1. [Substructure Kernels for RDF data using Spark](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/tree/master/WiSe2017_18/projects/project5)
 
 
 ## Grading
