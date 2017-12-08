@@ -1,4 +1,4 @@
-## Projects (TBA)
+## Projects
 
 Besides tutorials and worksheets to be posted publicly at the end of the semester, there will be some projects assigned to students. The best way to learn is by doing, so these will largely be applied assignments that provide hands-on experience with the basic skills taught during the lab.
 
