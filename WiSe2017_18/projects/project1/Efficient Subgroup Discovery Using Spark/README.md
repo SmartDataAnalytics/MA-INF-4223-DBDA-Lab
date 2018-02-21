@@ -15,3 +15,12 @@ mvn clean package
 
 The subsequent steps depend on your IDE. Generally, just import this repository as a Maven project and start using SANSA / Spark. Enjoy it! :)
 
+Efficient Sugroup Discovery Using Spark:
+Main class file: SgDiscovery.scala
+Other class file: RuleInduce.scala
+
+Add path to ontologies as arguments:
+"src/main/resources/SG/occupation.nt"
+"src/main/resources/SG/geography.nt"
+"src/main/resources/SG/banking_service.nt"
+
