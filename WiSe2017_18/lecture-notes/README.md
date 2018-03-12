@@ -1,6 +1,6 @@
 ## Lecture Notes
 
-- [Introduction: What is Big Data. Major tools used by data scientists. Class overview](#slides/01.Motivation.pdf)
+- [Introduction: What is Big Data. Major tools used by data scientists. Class overview](slides/01.Motivation.pdf)
 
 - [Spark Fundamentals I](https://docs.google.com/presentation/d/e/2PACX-1vTZifgQq65KEVJbBDt5KVoPZS04bfduHDfG35s1IJ0uypY9UdPvItkgTiI2otz8OCNDMFiHvTJzJWA5/pub?start=true&loop=false&delayms=3000)
 
