@@ -1,5 +1,5 @@
 # MA-INF-4223-DBDA-Lab
-Repository for  Lab “Distributed Big Data Analytics” (MA-INF 4223), University of Bonn
+Repository for  Lab “Distributed Big Data Analytics” (MA-INF 4223), Winter Semester 2017/18,  University of Bonn
 
 ## Lecturer 
 - [Dr. Hajira Jabeen](http://sda.cs.uni-bonn.de/people/dr-hajira-jabeen/)
