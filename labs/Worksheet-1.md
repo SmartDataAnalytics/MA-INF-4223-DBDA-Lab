@@ -12,7 +12,7 @@ Worksheet-1: **Setting up environment and getting started with Scala**
 
 April 17, 2018
 
-Over the lab during the semester, we are going to use a variety of tools, including Apache Hadoop (HDFS)[\[1\]](#ftnt1), Apache Spark[\[2\]](#ftnt2), Docker[\[3\]](#ftnt3) and many more. Installing this tools and getting started can often be a hassle, mainly because of the dependencies. You are allowed to choose which option : (i) on your own machine; (ii) using Virtualbox[\[4\]](#ftnt4) and Docker; (iii) or via VMs, to use when you install these packages.
+Over the lab during the semester, we are going to use a variety of tools, including Apache Hadoop (HDFS)[\[1\]](#ftnt_ref1), Apache Spark[\[2\]](#ftnt_ref2), Docker[\[3\]](#ftnt_ref3) and many more. Installing this tools and getting started can often be a hassle, mainly because of the dependencies. You are allowed to choose which option : (i) on your own machine; (ii) using Virtualbox[\[4\]](#ftnt_ref4) and Docker; (iii) or via VMs, to use when you install these packages.
 
 Tasks:
 
@@ -106,17 +106,17 @@ Here are the steps to be followed:
         \- Installations Steps
         ```sh
         #Download latest Apache Hadoop source from Apache mirrors
-        wget [http://mirror.nohup.it/apache/hadoop/common/hadoop-2.8.1/hadoop-2.8.1.tar.gz](http://mirror.nohup.it/apache/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz)
+        wget http://mirror.nohup.it/apache/hadoop/common/hadoop-2.8.3/hadoop-2.8.3.tar.gz
         
         # Extract Hadoop source
-        tar xzf hadoop-2.8.1.tar.gz
-        rm hadoop-2.8.1.tar.gz
-        \## Move hadoop-2.8.1 to hadoop folder
-        sudo mv hadoop-2.8.1 /usr/local
-        sudo ln -sf /usr/local/hadoop-2.8.1/ /usr/local/hadoop
+        tar xzf hadoop-2.8.3.tar.gz
+        rm hadoop-2.8.3.tar.gz
+        \## Move hadoop-2.8.3 to hadoop folder
+        sudo mv hadoop-2.8.3 /usr/local
+        sudo ln -sf /usr/local/hadoop-2.8.3/ /usr/local/hadoop
 
         #Assign ownership of this folder to Hadoop user./
-        sudo chown -R hduser:hadoop /usr/local/hadoop-2.8.1/
+        sudo chown -R hduser:hadoop /usr/local/hadoop-2.8.3/
         
         #Create Hadoop temp directories for Namenode and Datanode 
         sudo mkdir -p /usr/local/hadoop/hadoop_store/hdfs/namenode 
@@ -231,7 +231,7 @@ Here are the steps to be followed:
     hdfs dfs -mkdir /user  
     hdfs dfs -mkdir /user/hduser
     ```
-    \- Run a MapReduce job.hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.8.1.jar pi 10 50
+    \- Run a MapReduce job.hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.8.3.jar pi 10 50
     
     \- Track/Monitor/Verify
     ```sh
