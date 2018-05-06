@@ -250,7 +250,7 @@ Here are the steps to be followed:
     wget http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz  
     tar xvf spark-2.2.0-bin-hadoop2.7.tgz  
     nano ~/.bashrc  
-    export SPARK_HOME=$HOME/spark/spark-2.3.0-bin-hadoop2.7/  
+    export SPARK_HOME=$HOME/spark/spark-2.2.0-bin-hadoop2.7/  
     export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin  
     source ~/.bashrc  
     
