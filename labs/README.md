@@ -6,4 +6,4 @@
 
 - [Lab 3: Spark GraphX and Spark SQL operations](WorkSheet-3.md)
 
-- Lab 4: Spark ML and SANSA
+- [Lab 4: Spark ML and SANSA](WorkSheet-4.md)
