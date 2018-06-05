@@ -4,7 +4,15 @@ Besides tutorials and worksheets to be posted publicly at the end of the semeste
 
 You will have to choose one out of possible proposed projects. Each project is designed for group work and recommended to be worked on in groups of 3-4 students. It’s part of the project to work in a team.
 
-1. TBA
+1. [DistSAKey: Scalable Almost Key discovery in RDF data using Spark](project1)
+
+1. [Efficient completeness aware rule learning from Knowlede Graphs using Spark](project2)
+
+1. [Finding Association Rules from Semantic web data using Spark framework](project3)
+
+1. [Mining Semantic Association Rules from RDF data using Spark](project4)
+
+1. [Evolutionary Discovery of Multi relational Association Rules from Ontological Knowledge Bases using Spark](project5)
 
 
 ## Grading
