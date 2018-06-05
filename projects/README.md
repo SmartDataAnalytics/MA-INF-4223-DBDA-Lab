@@ -6,7 +6,7 @@ You will have to choose one out of possible proposed projects. Each project is d
 
 1. [DistSAKey: Scalable Almost Key discovery in RDF data using Spark](project1)
 
-1. [Efficient completeness aware rule learning from Knowlede Graphs using Spark](project2)
+1. [Efficient completeness aware rule learning from Knowledge Graphs using Spark](project2)
 
 1. [Finding Association Rules from Semantic web data using Spark framework](project3)
 
@@ -23,6 +23,6 @@ Grades for all projects will be assessed as follows:
   - [project report](https://docs.google.com/document/d/1HE5otXE3eHt-qc-bn3iEnOuH7OlJuhxnSLWJmNluneo/edit?usp=sharing) (40%)
     - motivation, documentation (20%)
     - results and discussion (20%)
-  - due 17/07/2018 (11:59pm – no extension!!)
+  - due 09/07/2018 (11:59pm – no extension!!)
   - submit report and code via Git repository commit
 - Q&A session (5%)
