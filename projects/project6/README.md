@@ -1,14 +1,4 @@
-Axiom Extraction From RDF Lab Project.
-=============================
+## Mining RDF Data for Property Axioms
 
-It uses [SANSA Template](https://github.com/SANSA-Stack/SANSA-Template-Maven-Spark).
-
-Author: Sergey Kuptsov.
-
-Download the project, build with
-
-mvn clean install
-mvn package
-Run the Main.scala to produce results
-
-Current Result: Association Rules of scecific type and purpose are generated from RDF.
+### Reference
+Fleischhacker D., Völker J., Stuckenschmidt H. (2012)** Mining RDF Data for Property Axioms. In: Meersman R. et al.** (eds) On the Move to Meaningful Internet Systems: OTM 2012. OTM 2012. _Lecture Notes in Computer Science, vol 7566. Springer, Berlin, Heidelberg_
