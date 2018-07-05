@@ -23,6 +23,6 @@ Grades for all projects will be assessed as follows:
   - [project report](https://docs.google.com/document/d/1HE5otXE3eHt-qc-bn3iEnOuH7OlJuhxnSLWJmNluneo/edit?usp=sharing) (40%)
     - motivation, documentation (20%)
     - results and discussion (20%)
-  - due 09/07/2018 (11:59pm – no extension!!)
+  - due 24/08/2018 (11:59pm – no extension!!)
   - submit report and code via Git repository commit
 - Q&A session (5%)
