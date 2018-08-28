@@ -18,6 +18,8 @@ import java.util.ArrayList
 import scala.util.control.Breaks._
 import org.apache.spark.mllib.fpm.FPGrowth.FreqItemset
 import org.apache.spark.mllib.fpm.AssociationRules
+import org.apache.jena.riot.Lang
+import net.sansa_stack.rdf.spark.io._
 
 object RulesMining {
 
@@ -25,9 +27,9 @@ object RulesMining {
   var compTriples = List.newBuilder[Triple[String, List[String], String]] //list of composition triples
   var instanceTransactions: ListBuffer[HashSet[String]] = new ListBuffer[HashSet[String]] //list of instance transactions
   var targetConceptNodesList: ListBuffer[String] = new ListBuffer[String] //nodes in graph with feature as target concept
-  var targetConceptNeighboursList: ListBuffer[Integer] = new ListBuffer[Integer] //immediate nodes of target concept in the graph
-  var targetConceptVertexId: Int = 0 //vertexId of targetConceptNodes in graph
-  var targetConceptNeighboursId: Int = 0 //vertexId of neighbours of targetConcept
+  var targetConceptNeighboursList: ListBuffer[Long] = new ListBuffer[Long] //immediate nodes of target concept in the graph
+  var targetConceptVertexId: Long = 0 //vertexId of targetConceptNodes in graph
+  var targetConceptNeighboursId: Long = 0 //vertexId of neighbours of targetConcept
   val query: String = "Patient,Report,{Disease,Drug,damageIndex}" //query pattern "targetConcept,context,{features+}"
   type VertexId = Long // vertex id for every node vertex in graph
   var testList: List[String] = List.empty[String] //list of modified composition triples for item generation
@@ -56,7 +58,8 @@ object RulesMining {
     println("======================================")
 
     //Reading the nTriples file
-    val triplesRDD = NTripleReader.load(spark, JavaURI.create(input))
+    val lang = Lang.NTRIPLES
+    val triplesRDD = spark.rdf(lang)(input)
     val tripleRDD = triplesRDD.map(triple => (triple.getSubject.toString, triple.getPredicate.toString, triple.getObject.toString))
     updateFeatures()
     val turtleSubjectObject = tripleRDD.map { x => (x._1, x._3) }
@@ -245,14 +248,10 @@ object RulesMining {
     val contextNodes = contextList.keySet
 
     contextNodes.foreach(nodes => {
-      graph.vertices.foreach(vert => {
-        if (vert._2.substring(vert._2.lastIndexOf("/") + 1).equals(nodes)) {
-          targetConceptVertexId = vert._1.toInt
-        }
-      })
+      targetConceptVertexId = getVertexId(graph, nodes)
       graph.edges.foreach(edge => {
-        if (edge.srcId.toInt == targetConceptVertexId) {
-          targetConceptNeighboursList += edge.dstId.toInt
+        if (edge.srcId == targetConceptVertexId) {
+          targetConceptNeighboursList += edge.dstId
         }
       })
       targetConceptNeighboursList.foreach(destId => {
@@ -284,7 +283,6 @@ object RulesMining {
               if (path != null && path.length > 0) {
                 var comp = path.slice(0, path.length - 1).toList
                 val triple = (targetConcept, comp, path(path.length - 1))
-                //                var str1 : String = triple._2.toString()
                 testList :::= List(triple._1, triple._2.toString(), triple._3)
                 compTriples += triple
                 instanceTransactionList += (path(path.length - 1))
@@ -323,7 +321,6 @@ object RulesMining {
         MSC_i = k
       } else if (count == 2) {
         MSC_j = k.substring(5, k.length - 1)
-        //println("Sorted List :" + MSC_j.sorted)
         if (MSC_j.split(", ").length > 1)
           tempStr = MSC_j.split(", ")(1)
         else
@@ -333,7 +330,7 @@ object RulesMining {
         resStr += MSC_j.split(", ")(0) + "!" + MSC_j.split(", ")(1) + "!{" + featureMap(tempStr)
       } else {
         MSC_k = k
-        if (MSC_k contains "Float") {
+        if (MSC_k contains "xsd") {
           MSC_k = MSC_k.split('"')(1)
           resStr += "." + featureMap(tempStr1) + "." + featureMap(MSC_k) + "->" + MSC_k + "}\n"
         } else if (MSC_k(0) == '"') {
