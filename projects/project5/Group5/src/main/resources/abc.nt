@@ -1,0 +1,77 @@
+<woman> <rdf:type> <human>.
+
+<man> <rdf:type> <human>.
+
+<bank> <rdf:type> <company>.
+
+<ABC> <rdf:type> <bank>.
+
+<DEF> <rdf:type> <bank>.
+
+<GHI> <rdf:type> <bank>.
+
+<JKL> <rdf:type> <bank>.
+
+
+
+<man1> <rdf:type> <man>.
+
+<man1> <rdf:hasan> <account1>.
+
+<account1> <rdf:type> <ABC>.
+
+
+
+<woman1> <rdf:type> <woman>.
+
+<woman1> <rdf:hasan> <account2>. 
+
+<account2> <rdf:type> <ABC>.
+
+
+
+<man2> <rdf:type> <man>.
+
+<man2> <rdf:hasan> <account3>.
+
+<account3> <rdf:type> <DEF>.
+
+
+
+<woman2> <rdf:type> <woman>.
+
+<woman2> <rdf:hasan> <account4>.
+
+<account4> <rdf:type> <DEF>.
+
+
+
+<man3> <rdf:type> <man>.
+
+<man3> <rdf:hasan> <account5>.
+
+<account5> <rdf:type> <GHI>.
+
+
+
+<woman3> <rdf:type> <woman>.
+
+<woman3> <rdf:hasan> <account6>.
+
+<account6> <rdf:type> <GHI>.
+
+
+
+<man4> <rdf:type> <man>.
+
+<man4> <rdf:hasan> <accoun7>.
+
+<account7> <rdf:type> <ABC>.
+
+
+
+<woman4> <rdf:type> <woman>.
+
+<woman4> <rdf:hasan> <account8>.
+
+<account8> <rdf:type> <ABC>.
