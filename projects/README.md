@@ -14,6 +14,8 @@ You will have to choose one out of possible proposed projects. Each project is d
 
 1. [Evolutionary Discovery of Multi relational Association Rules from Ontological Knowledge Bases using Spark](project5)
 
+1. [Mining RDF Data for Property Axioms](project6)
+
 
 ## Grading
 Grades for all projects will be assessed as follows:
