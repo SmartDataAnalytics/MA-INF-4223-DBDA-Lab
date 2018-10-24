@@ -2,7 +2,7 @@
 
 - [Lab 1: Setting up the environment and getting started with Scala](WorkSheet-1.md)
 
-- Lab 2: Getting started with Spark
+- [Lab 2: Getting started with Spark](WorkSheet-2.md)
 
 - Lab 3: Spark GraphX and Spark SQL operations
 
