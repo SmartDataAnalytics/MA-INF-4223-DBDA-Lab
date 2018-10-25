@@ -4,7 +4,7 @@
 
 - [Spark Fundamentals I](slides/2.Spark_Fundamentals_I.pdf)
 
-- Spark Fundamentals II (GraphX & Spark SQL)
+- [Spark Fundamentals II (GraphX & Spark SQL)](slides/3.Spark_Fundamentals_II.pdf)
 
 - Spark Fundamentals II (Spark ML)
 
