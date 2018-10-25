@@ -42,12 +42,12 @@ IN CLASS
 
 object  SparkSQLlab {
 
-def  main(args: Array\[String\]) = {
+def  main(args: Array[String]) = {
 
 val  input  =  "src/main/resources/rdf.nt"  // args(0)  
   
 val  spark  =SparkSession.builder  
-            .master("local\[*\]")  
+            .master("local[*]")  
             .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")  
             .appName("SparkSQL example")  
             .getOrCreate()  
@@ -91,11 +91,11 @@ subjectdistribution.collect().foreach(println(_))
 ```scala
 
 object  SparkGraphXlab {
-def  main(args: Array\[String\]) = {
+def  main(args: Array[String]) = {
 val  input  =  "src/main/resources/rdf.nt"  // args(0)  
   
 val  spark  =  SparkSession.builder  
-            .master("local\[*\]")  
+            .master("local[*]")  
             .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")  
             .appName("GraphX example")  
             .getOrCreate()  
