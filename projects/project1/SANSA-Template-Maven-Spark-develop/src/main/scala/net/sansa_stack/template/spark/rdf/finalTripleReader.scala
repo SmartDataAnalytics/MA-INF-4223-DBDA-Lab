@@ -63,7 +63,7 @@ object finalTripleReader {
   
   def dataPreprocessing() : RDD[(String,List[String])] = {
     
-    val df = sqlContext.read.format("com.databricks.spark.xml").option("rowTag","NEW_HEADER").load("/Users/debanjalibiswas/BigData/SANSA-Template-Maven-Spark-develop/src/main/resources/inputDataset.xml")
+    val df = sqlContext.read.format("com.databricks.spark.xml").option("rowTag","NEW_HEADER").load("/main/resources/inputDataset.xml")
     df.createOrReplaceTempView("articles")
     val sqlDF = sqlContext.sql("SELECT pubnum,title FROM articles")
     val data = sc.parallelize(sqlDF.collect)
@@ -74,7 +74,7 @@ object finalTripleReader {
       x._2.foreach(s => s.replaceAll("""[\p{Punct}&&[^.]]""", ""))
       (x._1,x._2) 
       })
-    /*val lines = sc.textFile("/Users/debanjalibiswas/BigData/SANSA-Template-Maven-Spark-develop/src/main/resources/sample.txt")
+    /*val lines = sc.textFile("/main/resources/sample.txt")
     val firstRdd = lines.map(x => {
      val word = x.split("-")
      (word(0),word(1))
