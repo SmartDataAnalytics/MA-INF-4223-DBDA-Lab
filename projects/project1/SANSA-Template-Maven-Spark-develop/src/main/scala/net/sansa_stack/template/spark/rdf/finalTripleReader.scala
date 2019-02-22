@@ -112,17 +112,11 @@ object finalTripleReader {
     combineWithPart.persist()
     
     val oddPartitioner = combineWithPart.filter(x => (x._1 % 2 != 0))
-    
     val evenPartitioner = combineWithPart.filter(x => (x._1 % 2 == 0))
-    
     val oddResult = jaccardSimilarity(oddPartitioner,dataset)
-    
     val evenResult = jaccardSimilarity(evenPartitioner,dataset)
-    
     val finalOddResult = oddResult.filter(x => (x._1 != "null"))
-
     val finalEvenResult = evenResult.filter(x => (x._1 != "null"))
-
     val results = finalOddResult.union(finalEvenResult)
 
     return results
