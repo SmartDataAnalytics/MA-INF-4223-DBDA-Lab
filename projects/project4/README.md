@@ -11,3 +11,9 @@
   organization={Springer}
 }
 ```
+
+#### How to use
+- Import as a maven project in IntelliJ IDE
+- Pass the dataset file as input argument
+  -i "src/main/resources/dataset.csv"
+ 
