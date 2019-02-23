@@ -1,0 +1,194 @@
+Prefix(:=<http://www.workingontologist.org/Examples/Chapter3/Product.owl#>)
+Prefix(mfg:=<http://www.workingontologist.org/Examples/Chapter3/Product.owl#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(daml:=<http://www.daml.org/2001/03/daml+oil#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.workingontologist.org/Examples/Chapter3/Product.owl>
+Annotation(owl:versionInfo "Created with TopBraid Spreadsheet converter"^^xsd:string)
+
+Declaration(Class(mfg:Product))
+Declaration(DataProperty(mfg:Product_Available))
+Declaration(DataProperty(mfg:Product_Division))
+Declaration(DataProperty(mfg:Product_ID))
+Declaration(DataProperty(mfg:Product_Manufacture_Location))
+Declaration(DataProperty(mfg:Product_ModelNo))
+Declaration(DataProperty(mfg:Product_Product_Line))
+Declaration(DataProperty(mfg:Product_SKU))
+Declaration(NamedIndividual(mfg:Product1))
+Declaration(NamedIndividual(mfg:Product2))
+Declaration(NamedIndividual(mfg:Product3))
+Declaration(NamedIndividual(mfg:Product4))
+Declaration(NamedIndividual(mfg:Product5))
+Declaration(NamedIndividual(mfg:Product6))
+Declaration(NamedIndividual(mfg:Product7))
+Declaration(NamedIndividual(mfg:Product8))
+Declaration(NamedIndividual(mfg:Product9))
+
+############################
+#   Data Properties
+############################
+
+# Data Property: mfg:Product_Available (Available)
+
+AnnotationAssertion(rdfs:label mfg:Product_Available "Available"^^xsd:string)
+DataPropertyDomain(mfg:Product_Available mfg:Product)
+DataPropertyRange(mfg:Product_Available xsd:string)
+
+# Data Property: mfg:Product_Division (Division)
+
+AnnotationAssertion(rdfs:label mfg:Product_Division "Division"^^xsd:string)
+DataPropertyDomain(mfg:Product_Division mfg:Product)
+DataPropertyRange(mfg:Product_Division xsd:string)
+
+# Data Property: mfg:Product_ID (ID)
+
+AnnotationAssertion(rdfs:label mfg:Product_ID "ID"^^xsd:string)
+DataPropertyDomain(mfg:Product_ID mfg:Product)
+DataPropertyRange(mfg:Product_ID xsd:string)
+
+# Data Property: mfg:Product_Manufacture_Location (Manufacture Location)
+
+AnnotationAssertion(rdfs:label mfg:Product_Manufacture_Location "Manufacture Location"^^xsd:string)
+DataPropertyDomain(mfg:Product_Manufacture_Location mfg:Product)
+DataPropertyRange(mfg:Product_Manufacture_Location xsd:string)
+
+# Data Property: mfg:Product_ModelNo (ModelNo)
+
+AnnotationAssertion(rdfs:label mfg:Product_ModelNo "ModelNo"^^xsd:string)
+DataPropertyDomain(mfg:Product_ModelNo mfg:Product)
+DataPropertyRange(mfg:Product_ModelNo xsd:string)
+
+# Data Property: mfg:Product_Product_Line (Product Line)
+
+AnnotationAssertion(rdfs:label mfg:Product_Product_Line "Product Line"^^xsd:string)
+DataPropertyDomain(mfg:Product_Product_Line mfg:Product)
+DataPropertyRange(mfg:Product_Product_Line xsd:string)
+
+# Data Property: mfg:Product_SKU (SKU)
+
+AnnotationAssertion(rdfs:label mfg:Product_SKU "SKU"^^xsd:string)
+DataPropertyDomain(mfg:Product_SKU mfg:Product)
+DataPropertyRange(mfg:Product_SKU xsd:string)
+
+
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: mfg:Product1 (Product 1)
+
+AnnotationAssertion(rdfs:label mfg:Product1 "Product 1"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product1)
+DataPropertyAssertion(mfg:Product_Available mfg:Product1 "23"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product1 "Manufacturing support"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product1 "1"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product1 "Sacramento"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product1 "ZX-3"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product1 "Papermachine"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product1 "FB3524"^^xsd:string)
+
+# Individual: mfg:Product2 (Product 2)
+
+AnnotationAssertion(rdfs:label mfg:Product2 "Product 2"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product2)
+DataPropertyAssertion(mfg:Product_Available mfg:Product2 "4"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product2 "Manufacturing support"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product2 "2"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product2 "Sacramento"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product2 "ZX-3P"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product2 "Paper machine"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product2 "KD5243"^^xsd:string)
+
+# Individual: mfg:Product3 (Product 3)
+
+AnnotationAssertion(rdfs:label mfg:Product3 "Product 3"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product3)
+DataPropertyAssertion(mfg:Product_Available mfg:Product3 "34"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product3 "Manufacturing support"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product3 "3"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product3 "Sacramento"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product3 "ZX-3S"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product3 "Paper machine"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product3 "IL4028"^^xsd:string)
+
+# Individual: mfg:Product4 (Product 4)
+
+AnnotationAssertion(rdfs:label mfg:Product4 "Product 4"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product4)
+DataPropertyAssertion(mfg:Product_Available mfg:Product4 "23"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product4 "Control Engineering"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product4 "4"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product4 "Elizabeth"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product4 "B-1430"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product4 "Feedback line"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product4 "KS4520"^^xsd:string)
+
+# Individual: mfg:Product5 (Product 5)
+
+AnnotationAssertion(rdfs:label mfg:Product5 "Product 5"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product5)
+DataPropertyAssertion(mfg:Product_Available mfg:Product5 "14"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product5 "Control Engineering"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product5 "5"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product5 "Elizabeth"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product5 "B-1430X"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product5 "Feedback line"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product5 "CL5934"^^xsd:string)
+
+# Individual: mfg:Product6 (Product 6)
+
+AnnotationAssertion(rdfs:label mfg:Product6 "Product 6"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product6)
+DataPropertyAssertion(mfg:Product_Available mfg:Product6 "0"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product6 "Control Engineering"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product6 "6"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product6 "Seoul"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product6 "B-1431"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product6 "Active sensor"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product6 "KK3945"^^xsd:string)
+
+# Individual: mfg:Product7 (Product 7)
+
+AnnotationAssertion(rdfs:label mfg:Product7 "Product 7"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product7)
+DataPropertyAssertion(mfg:Product_Available mfg:Product7 "100"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product7 "Accessories"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product7 "7"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product7 "Hong Kong"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product7 "DBB-12"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product7 "Monitor"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product7 "ND5520"^^xsd:string)
+
+# Individual: mfg:Product8 (Product 8)
+
+AnnotationAssertion(rdfs:label mfg:Product8 "Product 8"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product8)
+DataPropertyAssertion(mfg:Product_Available mfg:Product8 "HI4554"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product8 "Safety"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product8 "8"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product8 "valve"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product8 "SP-1234"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product8 "Safety"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product8 "Cleveland"^^xsd:string)
+
+# Individual: mfg:Product9 (Product 9)
+
+AnnotationAssertion(rdfs:label mfg:Product9 "Product 9"^^xsd:string)
+ClassAssertion(mfg:Product mfg:Product9)
+DataPropertyAssertion(mfg:Product_Available mfg:Product9 "OP5333"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Division mfg:Product9 "Safety"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ID mfg:Product9 "9"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Manufacture_Location mfg:Product9 "valve"^^xsd:string)
+DataPropertyAssertion(mfg:Product_ModelNo mfg:Product9 "SPX-1234"^^xsd:string)
+DataPropertyAssertion(mfg:Product_Product_Line mfg:Product9 "Safety"^^xsd:string)
+DataPropertyAssertion(mfg:Product_SKU mfg:Product9 "Cleveland"^^xsd:string)
+
+
+)
