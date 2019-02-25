@@ -215,10 +215,11 @@ object Algorithm {
     */
   def falsePositives(spark: SparkSession, scheme: String, trainingSet: DataFrame): Long = {
 
-    val count = spark.sparkContext.longAccumulator
+    import spark.implicits._
+
     val columnNames = trainingSet.columns
 
-    trainingSet.foreach { row =>
+    trainingSet.flatMap { row =>
       val humanOracle = row.getString(row.length - 1)
       var currentScheme = scheme
 
@@ -232,11 +233,11 @@ object Algorithm {
       val result = BlockingSchemeCalculator.calculate(currentScheme)
 
       if (result && humanOracle == "N") {
-        count.add(1)
+        Seq(row.length)
+      } else {
+        Seq()
       }
-    }
-
-    return count.value
+    }.count()
   }
 
   /** Calculates false negatives given a training set dataframe and a blocking scheme.
@@ -245,12 +246,14 @@ object Algorithm {
     *  @param scheme blocking scheme.
     *  @param trainingSet training set dataframe.
     */
+
   def falseNegatives(spark: SparkSession, scheme: String, trainingSet: DataFrame): Long = {
 
-    val count = spark.sparkContext.longAccumulator
+    import spark.implicits._
+
     val columnNames = trainingSet.columns
 
-    trainingSet.foreach { row =>
+    trainingSet.flatMap { row =>
       val humanOracle = row.getString(row.length - 1)
       var currentScheme = scheme
 
@@ -264,11 +267,11 @@ object Algorithm {
       val result = BlockingSchemeCalculator.calculate(currentScheme)
 
       if (!result && humanOracle == "M") {
-        count.add(1)
+        Seq(row.length)
+      } else {
+        Seq()
       }
-    }
-
-    return count.value
+    }.count()
   }
 
   /** Calculates true positives given a training set dataframe and a blocking scheme.
@@ -279,10 +282,11 @@ object Algorithm {
     */
   def truePositives(spark: SparkSession, scheme: String, trainingSet: DataFrame): Long = {
 
-    val count = spark.sparkContext.longAccumulator
+    import spark.implicits._
+
     val columnNames = trainingSet.columns
 
-    trainingSet.foreach { row =>
+    trainingSet.flatMap { row =>
       val humanOracle = row.getString(row.length - 1)
       var currentScheme = scheme
 
@@ -296,11 +300,11 @@ object Algorithm {
       val result = BlockingSchemeCalculator.calculate(currentScheme)
 
       if (result && humanOracle == "M") {
-        count.add(1)
+        Seq(row.length)
+      } else {
+        Seq()
       }
-    }
-
-    return count.value
+    }.count()
   }
 
   /** Human oracle that labels the feature vectors based on a threshold percentage.
