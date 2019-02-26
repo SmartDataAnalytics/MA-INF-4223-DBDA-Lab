@@ -86,10 +86,10 @@ object finalTripleReader {
   
   
   def combinationBasedBlocking(dataset : RDD[(String,List[String])]) : RDD[(List[String],List[String])] = {
-    val sortedInputs = dataset.sortBy(_._1).map(x => (x._2.toList,x._1))
+    val sortedInputs = dataset.sortBy(_._1).map(x => (x._2,x._1))
     val combinationMapResults = sortedInputs.flatMap(parseCombinationMap)
-    val combinationReduceResults = combinationMapResults.groupByKey().filter(x => x._2.size.>=(kc.value))
-    val finalCombinationResults = combinationReduceResults.map(x => (x._1, x._2.toList)) 
+    val combinationReduceResults = combinationMapResults.reduceByKey((x,y) => x+"@//@"+y)
+    val finalCombinationResults = combinationReduceResults.map(x => (x._1, x._2.split("@//@").toList)).filter(x => x._2.size.>=(kc.value))
     return finalCombinationResults
 
   }
