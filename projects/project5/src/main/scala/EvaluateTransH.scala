@@ -90,8 +90,8 @@ object EvaluateTransH {
         var meanRankHit10Map = Map[Long, (Int, Int)]()
         val indxArr = 0 until nE
         
-        iterator.foreach{
-          sampleTriple => 
+        while(iterator.hasNext){
+            val sampleTriple = iterator.next()
             println("Sample triple ID: " + sampleTriple._2)
             var tmpDistanceMap = Map[Long, Double]()
             var tmpDistanceCTailMap = Map[Long, Double]()

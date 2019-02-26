@@ -85,9 +85,9 @@ extends Models(ne: Int, nr: Int, batch: Int, k: Int, sk: SparkSession){
             var rPerPartition = Map[Int,Tensor[Float]]()
             var wrPerPartition = Map[Int,Tensor[Float]]()
             var retMap = ArrayBuffer[(Map[Int,Tensor[Float]],Map[Int,Tensor[Float]], Map[Int,Tensor[Float]])]()
-            
-            iterator.foreach{
-              sampleTriple => 
+           
+            while(iterator.hasNext){
+                val sampleTriple = iterator.next()
                 //For each tuple add the corresponding embeddings in the maps per partition
                 if(!ePerPartition.contains(sampleTriple.Subject)){
                   ePerPartition(sampleTriple.Subject) = bcE.value(sampleTriple.Subject)
