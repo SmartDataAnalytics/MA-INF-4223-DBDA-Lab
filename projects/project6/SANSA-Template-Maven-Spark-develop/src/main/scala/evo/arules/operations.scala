@@ -129,27 +129,41 @@ class Operations extends java.io.Serializable {
     }
     return r
   }
+  
 
   def mergeBodies(p:Rule, r:Rule): Rule = {
 
     var mergedAtomPool = new Rule()
     for(i <- 1 to p.size()){
-      mergedAtomPool.addAtom(p.atomList(i))
+      mergedAtomPool.addAtom(makeAtom(p.atomList(i).atomName, p.atomList(i).atomType))
     }
     for(i <- 1 to r.size()) {
-      mergedAtomPool.addAtom(r.atomList(i))
+      mergedAtomPool.addAtom(makeAtom(r.atomList(i).atomName, r.atomList(i).atomType))
     }
     return mergedAtomPool
   }
 
+  
+  def mergeBodies2(p:Rule, r:Rule): ListBuffer[Tuple2[String, String]] = {
 
+    var mergedAtomPool = new ListBuffer[Tuple2[String, String]]()
+    for(i <- 1 to p.size()){
+      mergedAtomPool.append((p.atomList(i).atomName, p.atomList(i).atomType))
+    }
+    for(i <- 1 to r.size()) {
+      mergedAtomPool.append((r.atomList(i).atomName, r.atomList(i).atomType))
+    }
+    return mergedAtomPool
+  }  
+
+  
   def recombine(p:Rule, r:Rule): (Rule,Rule) ={
-    var p_old_head = p.atomList(0)
-    var r_old_head = r.atomList(0)
+    var p_old_head = makeAtom(p.atomList(0).atomName, p.atomList(0).atomType)
+    var r_old_head = makeAtom(r.atomList(0).atomName, r.atomList(0).atomType)
 
-    var L:Rule = mergeBodies(p,r)
+    var L:ListBuffer[Tuple2[String, String]] = mergeBodies2(p,r)
     val rand = new Random()
-    val RuleLength = L.size()+1
+    val RuleLength = L.length
     val len_pHat = rand.nextInt(RuleLength-2)+2
     val len_rHat = RuleLength-len_pHat
 
@@ -157,20 +171,21 @@ class Operations extends java.io.Serializable {
     var p_hat = new Rule()
     p_hat = enforceLanguageBiasCombine(p_hat, p_old_head)
     while(p_hat.size() < len_pHat){
-      var a = L.remove(rand.nextInt(L.size()+1))
-      p_hat = enforceLanguageBiasCombine(p_hat,a)
+      var a = L.remove(rand.nextInt(L.length))
+      p_hat = enforceLanguageBiasCombine(p_hat,makeAtom(a._1, a._2))
       
     }
     
     var r_hat = new Rule()
     r_hat = enforceLanguageBiasCombine(r_hat, r_old_head)
     while(r_hat.size() < len_rHat){
-      var a = L.remove(rand.nextInt(L.size()+1))
-      r_hat = enforceLanguageBiasCombine(r_hat,a)
+      var a = L.remove(rand.nextInt(L.length))
+      r_hat = enforceLanguageBiasCombine(r_hat,makeAtom(a._1, a._2))
       
     }
     return (p_hat,r_hat)
   }
+ 
   
   def enforceLanguageBiasCombine(r: Rule, atom:Atom):Rule ={
     if(atom.atomType=="Concept"){

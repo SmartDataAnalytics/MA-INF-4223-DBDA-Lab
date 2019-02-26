@@ -1,6 +1,7 @@
 package ds
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
+import scala.collection.mutable.Set
 
 // This class is for generation of SWRL rules and has a lot of operation regarding rules like rule safety and
 //language bias operations
@@ -13,6 +14,7 @@ class Rule extends java.io.Serializable {
   var availableBinding = ListBuffer.range(1,20)
   var usedBinding = ListBuffer[Int]()
   var priorityBinding = ListBuffer[Int]()
+  var conceptBinding = Set[Int]()
 
   def addAtom(atom: Atom)={
      atomList+=atom
@@ -74,7 +76,6 @@ class Rule extends java.io.Serializable {
   def safeBindingExistingConcept(existingBinding: Int): Int={
     var bind:Int = -1
     val rand = new Random()
-
     if (!(priorityBinding.contains(existingBinding) && priorityBinding.length-1==0) && priorityBinding.length!=0){
      
       if(priorityBinding.length==1){
@@ -83,7 +84,6 @@ class Rule extends java.io.Serializable {
       else do{
         bind = priorityBinding(rand.nextInt(priorityBinding.length))
       } while(bind==existingBinding)
-        println(existingBinding, bind, priorityBinding.indexOf(bind))
         bind = priorityBinding.remove(priorityBinding.indexOf(bind))
       usedBinding+=bind
     }
@@ -96,12 +96,12 @@ class Rule extends java.io.Serializable {
       } while(bind==existingBinding)
      
     }
-    else{
-     
+    
+    if (conceptBinding.contains(bind) || bind== -1){     
       bind = _avaBinding()
       priorityBinding+=bind
     }
-    print("Safe by concept leaves")
+    conceptBinding+=bind
     return bind
   }
 
@@ -126,6 +126,7 @@ class Rule extends java.io.Serializable {
       bind = _avaBinding()
       priorityBinding+=bind
     }
+    conceptBinding+=bind
     return bind
   }
 

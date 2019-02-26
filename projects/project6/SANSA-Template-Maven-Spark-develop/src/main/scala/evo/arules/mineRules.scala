@@ -41,23 +41,21 @@ object mineRules extends App {
       "net.sansa_stack.owl.spark.dataset.UnmodifiableCollectionKryoRegistrator")
     .getOrCreate()
 
-  type OWLAxiomsRDD = RDD[OWLAxiom]
-  var _rdd: OWLAxiomsRDD = null
   val syntax = Syntax.FUNCTIONAL
 
-  val filePath = "/Users/autoninja/Desktop/project/SANSA-Template-Maven-Spark-develop 2/src/main/resources/product.owl"//this.getClass.getClassLoader.getResource("owlfile.owl").getPath
+  val filePath = "/Users/autoninja/Desktop/project2/SANSA-Template-Maven-Spark-develop/src/main/resources/product.owl"//functionalformatfinanicial.owl"//this.getClass.getClassLoader.getResource("owlfile.owl").getPath
   println (filePath)
 
+
+  val rdd = spark.owl(syntax)(filePath)
+//  def rdd: OWLAxiomsRDD = {
+//    if (_rdd == null) {
+//      _rdd = spark.owl(syntax)(filePath)
+//      _rdd.cache()
+//    }
+//    _rdd
+//  }
   run_iterations()
-
-  def rdd: OWLAxiomsRDD = {
-    if (_rdd == null) {
-      _rdd = spark.owl(syntax)(filePath)
-      _rdd.cache()
-    }
-    _rdd
-  }
-
   def generate_random_atoms():Atom={
 
     var atom: Atom = new Atom("A","Concept",1, vars = ListBuffer(1))
@@ -93,8 +91,10 @@ object mineRules extends App {
 
   // This function runs the main algorithm 
   def run_iterations()={
+    
     val rddcount = rdd.count()
-    //println (rddcount)
+    //list having sublcass axioms
+    val subclassRDD =  rdd.filter(axiom => axiom.isInstanceOf[OWLSubClassOfAxiom])
     // list that has all the classes names and its instances. It basically stores all the Class Assertion Axioms.
     var conceptlist = scala.collection.mutable.ListBuffer.empty[Map[String, String]]
     // list that has all the role names, the instance used by it and implied data. It basically stores all the Object Property Assertion Axioms and Data Property Axioms.
@@ -106,10 +106,7 @@ object mineRules extends App {
     // filtering the RDD with required axioms to create rules
     val filteredRDD = rdd.filter(axiom => axiom.isInstanceOf[OWLDataPropertyAssertionAxiom] || axiom.isInstanceOf[OWLClassAssertionAxiom] || axiom.isInstanceOf[OWLObjectPropertyAssertionAxiom])
     // println(filteredRDD.count)
-    val subclassRDD =  rdd.filter(axiom => axiom.isInstanceOf[OWLSubClassOfAxiom])
-    subclassRDD.collect.foreach{
-      println
-    }
+    
     filteredRDD.collect.foreach(selectedRdd=>{
       val splittedArray= selectedRdd.toString().split("[<,>]")
       if (splittedArray(0) contains "Class"){
@@ -136,11 +133,6 @@ object mineRules extends App {
       }
     })
 
-    println (conceptlist)
-    println (rolelist)
-    println (conceptCount)
-    println (roleCount)
-    
     var conceptNames = scala.collection.mutable.ListBuffer.empty[String] 
     var roleNames = scala.collection.mutable.ListBuffer.empty[String] 
     for(x <- conceptlist){
@@ -148,7 +140,6 @@ object mineRules extends App {
       conceptNames += x("Class")
       }
     }
-    println (conceptNames.mkString)
     
      for(x <- rolelist){
        if (! (roleNames contains x("Role"))){
@@ -166,9 +157,9 @@ object mineRules extends App {
     op.a_f_Role = roleNames
 
     
-    val numIters = 10 // Number of iteration for the genetic algorithms
+    val numIters = 3 // Number of iteration for the genetic algorithms
     val tau = 0.2 // Truncation parameter
-    val N = 10    // Number of rules
+    val N = 6    // Number of rules
     val tp = scala.math.floor(tau*N)
     //val tp = 1
     
@@ -179,7 +170,7 @@ object mineRules extends App {
     
     var opRDDbroadcast = spark.sparkContext.broadcast(spark.sparkContext.parallelize(Seq(op)).collect())
     var ruleRDD = spark.sparkContext.parallelize(ruleArray)
-    ruleRDD.foreach(println)
+    //ruleRDD.foreach(println)
     
     println("Evolutionary Rule Mining started..")
     for (iter<- 1 to numIters){
@@ -187,7 +178,7 @@ object mineRules extends App {
       ruleRDD.map(r => {
         r.hC = opRDDbroadcast.value(0).calculateHeadCoverage(r)
       })
-      ruleRDD.sortBy(_.hC).collect()
+      ruleRDD.sortBy(_.hC)//.collect()
       
      
       var topRulesRDD = ruleRDD.zipWithIndex().filter(_._2<tp).map(_._1)
@@ -195,9 +186,7 @@ object mineRules extends App {
       
       topRulesRDD.collect()
       bottomRulesRDD.collect()
-      println("TopRules")
       topRulesRDD.foreach(println)
-      println("BottomRules")
       bottomRulesRDD.foreach(println)
       
       var jointRulesRDD = bottomRulesRDD.zipWithIndex().filter(t=>(t._2+1)%2!=0).map(_.swap).join(
@@ -205,7 +194,6 @@ object mineRules extends App {
         .map(_._2)
       
       var processedRulesRDD = jointRulesRDD.map(x => {
-        println("Inside: "+x._1, x._2)
         val rand = new Random()
         var r1 = x._1
         var r2 = x._2
@@ -213,29 +201,20 @@ object mineRules extends App {
           var k = opRDDbroadcast.value(0).recombine(x._1, x._2)
           r1 = k._1
           r2 = k._2
-          println("Recombine")
-          println(r1, r2)
         }
         if(rand.nextFloat()<op.pmut){
-          println("Mutate 1")
           r1 = opRDDbroadcast.value(0).mutate(r1)
-          println(r1)
         }
         if(rand.nextFloat()<op.pmut){
-          println("Mutate 2")
           r2 = opRDDbroadcast.value(0).mutate(r2)
-          println(r2)
-        //return (r1: Rule, r2: Rule)
         }
-        print(r1, r2)
         ListBuffer(r1,r2)
       }).flatMap(x => x)
       
       processedRulesRDD.collect()
-      processedRulesRDD.foreach(println)
       ruleRDD = topRulesRDD.union(processedRulesRDD)
     }
-    ruleRDD.foreach(println)
+    //ruleRDD.foreach(println)
     ruleRDD.repartition(1).saveAsTextFile("output")
   }
 

@@ -23,7 +23,4 @@ class Atom(name: String, atype: String, nvars: Int, vars: ListBuffer[Int]) exten
     }
     return ""
     }
-    def main(args: Array[String]) {
-    println("Hello World")
-  }
 }
