@@ -1,0 +1,29 @@
+Record,Author,Title,Venue,Review
+r1,Andrew,Mining,KDD,Good
+r2,Gale,Mining,CIKM,good
+r3,Andrew,Mining,KDD,Gud
+r4,Gaile,Mining,CIKM,Very good
+r5,Andrew,Fast,CIKM,Satisfactory
+r6,Robert,Mining,CLL,Good
+r7,Becker,Fast,cikm,satisfactry
+r8,Robrt,Learning,KDD,Poor
+r9,Gale,Learning,KDD,Poor
+r10,Max,Mining,CLL,Gud
+r11,Becker,Fast,CIKM,Satisfactory
+r12,Robert,Learning,KDD,Pour
+r13,Gale,Mining,CIKM,Vr good
+r14,Max,minig,CLL,Good
+r15,Rudy,Mining,CLL,Good
+r16,Clara,Deep,KDD,Excellent
+r17,Becker,Learning,CIKM,Satisfactory
+r18,Clara,Deep,kdd,Ecellent
+r19,Andrew,Deep,KDD,exellent
+r20,Andrew,Mining,KDD,Good
+r21,Clara,Deep,kdd,Ecellent
+r22,Max,minig,CLL,Good
+r23,Max,minig,CLL,Good
+r24,Andrew,Fast,CIKM,Satisfactory
+r25,Robert,Mining,CLL,Good
+r26,Becker,Fast,cikm,excellent
+r27,Robrt,Learning,KDDA,good
+r28,Gale,Learning,AKDD,Satisfactory
