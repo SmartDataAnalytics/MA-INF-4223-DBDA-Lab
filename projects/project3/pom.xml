@@ -68,40 +68,6 @@
 			<version>${jena.version}</version>
 		</dependency>
 
-		<!-- SANSA RDF -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>sansa-rdf-spark_${scala.binary.version}</artifactId>
-			<version>${sansa.rdf.version}</version>
-		</dependency>
-
-		<!-- SANSA OWL -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>sansa-owl-spark_${scala.binary.version}</artifactId>
-			<version>${sansa.owl.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>sansa-inference-spark_${scala.binary.version}</artifactId>
-			<version>${sansa.inference.version}</version>
-		</dependency>
-
-		<!-- SANSA Querying -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>sansa-query-spark_${scala.binary.version}</artifactId>
-			<version>${sansa.query.version}</version>
-		</dependency>
-
-		<!-- SANSA ML -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>sansa-ml-spark_${scala.binary.version}</artifactId>
-			<version>${sansa.ml.version}</version>
-		</dependency>
-
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>

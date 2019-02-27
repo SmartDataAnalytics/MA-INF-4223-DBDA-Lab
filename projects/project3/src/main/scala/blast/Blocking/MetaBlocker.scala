@@ -7,11 +7,12 @@ class MetaBlocker(spark : SparkSession, clusterEntropies : Map[Int, Double]){
 
   private val _spark = spark
   private val PriClusterEntropies = clusterEntropies
+
   def calculate(blocks : RDD[Tuple2[Tuple2[String, Int],List[String]]], profileIndex : RDD[Tuple2[String, Set[Tuple2[String,Int]]]] , DS1Attr : AttributeProfile, DS2Attr : AttributeProfile) : RDD[Tuple2[String,String]] = {
     //tuples (entity id, entity profile)
     val entityByKeys = DS1Attr.getEntityProfiles.map(x => ("DS1"+x.getEntityUrl, x)) ++ DS2Attr.getEntityProfiles.map(x=> ("DS2"+x.getEntityUrl, x))
 
-    //generates directed edges from blocks. one edge is added in each direction
+    //generates directed edges from blocks. all of them follow (node DS1, (nodeDS2, weight))
     val edges = createEdges2( profileIndex, blocks.count().toInt )
 
     println("generating edges")
@@ -27,24 +28,20 @@ class MetaBlocker(spark : SparkSession, clusterEntropies : Map[Int, Double]){
     val thetaPerNodeDS1 = edges.aggregateByKey(0.0)((mv : Double , tup : Tuple2[String, Double]) => math.max(mv/c, tup._2), (a: Double, b : Double) => math.max(a,b))
     val thetaPerNodeDS2 = edges.map{case (profileA,(profileB, weight)) => (profileB,(profileA, weight))}.aggregateByKey(0.0)((mv : Double , tup : Tuple2[String, Double]) => math.max(mv/c, tup._2), (a: Double, b : Double) => math.max(a,b))
     val thetaPerNode = thetaPerNodeDS1 ++ thetaPerNodeDS2
-    println("calculated thetaas")
+    println("calculated thetas")
 
     //we collect the theta values and broadcast them avoiding many network operations
     //https://stackoverflow.com/a/17690254
     val thetasPerNodeBrd = spark.sparkContext.broadcast(thetaPerNode.collectAsMap())
 
-    //remove those edges that have weight less than threshold according to blast strategy and those
-    //where the id of the first is > of the second. Previously we included edges in both direction to facilitate
-    //the computation of the threshold we dont neet it anymore
-    //then, remaps to (id1, id2) removing the weight
+    //remove those edges that have weight less than threshold according to blast strategy.
     val filteredEdges : RDD[Tuple2[String,String]] = edges.filter{case (a,(b, weight)) =>
       val tethaH = thetasPerNodeBrd.value //gets broadcasted hash
       val newT = (tethaH.get(a).get+ tethaH.get(b).get)/2.0
-      weight >= newT && a < b}.map{case (a,(b, weight)) => (a,b)}
+      weight >= newT}.map{case (a,(b, weight)) => (a,b)}
     filteredEdges.persist()
     println("pruned graph")
 
-    //filteredEdges.take(10).foreach(println)
   return filteredEdges
 
 

@@ -22,7 +22,8 @@ public class read_GroundTruth {
         }
 
         hashSet = duplicates;
-       return duplicates;
+
+        return duplicates;
 }
 
 public static HashSet<Integer> get_the_hashValues(){

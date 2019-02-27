@@ -17,7 +17,7 @@ package DataStructures;
 import java.io.Serializable;
 
 /**
- *
+ * Classes obtained from: http://sourceforge.net/projects/erframework/files/CleanCleanERDatasets/
  * @author gap2
  */
 

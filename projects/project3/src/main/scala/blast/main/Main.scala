@@ -10,85 +10,122 @@ import blast.AttributeSchema.AttributeMatchInduction
 import blast.Blocking.Blocker
 import blast.Blocking.MetaBlocker
 import blast.data_processing.read_GroundTruth
-
+import blast.data_processing.evaluation
 import scala.collection.JavaConverters._
 
 
-
+/*
+* Main Blast Class. Implements different functions.
+* execute : executes blast with datasets
+* convert : converts datasets in the format from http://sourceforge.net/projects/erframework/files/CleanCleanERDatasets/
+*            to spark object files.
+* */
 
 object Main {
 
-  def convertFile(spark : SparkSession, inputP:String, outputP: String): Unit = {
-    val ds:RDD[EntityProfile] = spark.sparkContext.parallelize(DatasetReader.readDataset(inputP))
+  def convertFile(spark: SparkSession, inputP: String, outputP: String): Unit = {
+    val ds: RDD[EntityProfile] = spark.sparkContext.parallelize(DatasetReader.readDataset(inputP))
     ds.saveAsObjectFile(outputP)
   }
+
   def main(args: Array[String]) {
+    args.foreach(println)
+    println(args.size)
+
+
+    if (args.size < 1) {
+      println("must provide command:" +
+        "\n convert input_file output_path" +
+        "\n execute dataset1_path dataset2_path groundtruth(optional)")
+      return
+    } else {
+
+      if (args(0) == "convert") {
+        if (args.size < 3) {
+          println("not enough arguments: convert origin_path destination_path")
+        } else {
+          val spark = SparkSession.builder
+            .appName(s"Blast")
+            .master("local[*]")
+            .getOrCreate()
+          convertFile(spark, args(1), args(2))
+        }
+      } else {
+        if (args(0) == "execute") {
+          if (args.size < 3) {
+            println("not enough arguments: execute ds1_path ds2_path")
+          } else {
+            if (args.size == 3) {
+              run_blast(args(1), args(2), None)
+            } else {
+              //provided groundtruth file
+              run_blast(args(1), args(2), Some(args(3)))
+            }
+          }
+        }
+      }
+    }
+  }
+
+  def run_blast(ds1path: String, ds2path: String, groundtruth: Option[String]) {
+
     //initializing spark
     val spark = SparkSession.builder
       .appName(s"Blast")
       .master("local[*]")
       .getOrCreate()
 
-    val ds1suffix = "dblp"
-    val ds2suffix = "acm"
+    val dataS1: RDD[EntityProfile] = spark.sparkContext.objectFile(ds1path)
+    val dataS2: RDD[EntityProfile] = spark.sparkContext.objectFile(ds2path)
 
-    val ds1path = "/media/sf_uniassignments/BLAST/dataset1_"+ ds1suffix
-    val ds1pathScala = ds1path.concat("_scala")
-    val ds2path = "/media/sf_uniassignments/BLAST/dataset2_" + ds2suffix
-    val ds2pathScala = ds2path.concat("_scala")
 
-    // for the first run, uncomment this part to format the files into spark format
-    //convertFile(spark, ds1path, ds1pathScala)
-    //convertFile(spark, ds2path, ds2pathScala)
+    //calculate information regarding attributes (entropies and tokens )
+    val AProfileDS1 = new AttributeProfile(dataS1)
+    val AProfileDS2 = new AttributeProfile(dataS2)
 
-    //return
-    //**read dataset with spark, should use the old method first to read the data for the first time
-    val dataS1 :RDD[EntityProfile] = spark.sparkContext.objectFile(ds1pathScala)
-    val dataS2 :RDD[EntityProfile] = spark.sparkContext.objectFile(ds2pathScala)
 
-    //Creates AttributeProfile class instances which calculate information regarding attributes
-    val AProfileDS1 =  new AttributeProfile(dataS1)
-    val AProfileDS2 =  new AttributeProfile(dataS2)
-
-//    val size_DS1  = dataS1.count() ; val  size_DS2 = dataS2.count()
-
-    println("DS1 size:", AProfileDS1._size ,"\tDS2 size:", AProfileDS2._size)
+    println("DS1 size:", AProfileDS1._size, "\tDS2 size:", AProfileDS2._size)
     println("data loaded")
 
-//    println("entropies DS1")
-//    AProfileDS1.getAttributeEntropies.collect.foreach(println)
-//    println("entropies DS2")
-//    AProfileDS2.getAttributeEntropies.collect.foreach(println)
 
+    //compute attribute clusters
     val a = new AttributeMatchInduction()
-
     val clusters = a.calculate(AProfileDS1, AProfileDS2)
     println("clusters are:")
     clusters.foreach(println)
 
-
+    //blocking step
     val blocker = new Blocker()
-    val (blocks : RDD[Tuple2[Tuple2[String, Int], List[String]]] , profileIndex : RDD[(String,Set[(String, Int)])]) = blocker.block(AProfileDS1,AProfileDS2, clusters )
-    blocks.take(5).foreach(println)
+    val (blocks: RDD[Tuple2[Tuple2[String, Int], List[String]]], profileIndex: RDD[(String, Set[(String, Int)])]) = blocker.block(AProfileDS1, AProfileDS2, clusters)
     println("#blocks :")
     println(blocks.count)
 
-    val clusterEntropies : Map[Int,Double] = a.entropies_from_clusters(AProfileDS1,AProfileDS2,clusters)
+    //use attribute match induction's class to calculate the clusters entropies
+    val clusterEntropies: Map[Int, Double] = a.entropies_from_clusters(AProfileDS1, AProfileDS2, clusters)
+    //metablocking
     val mBlocker = new MetaBlocker(spark, clusterEntropies)
-    val candidate_pairs = mBlocker.calculate(blocks ,profileIndex, AProfileDS1, AProfileDS2)
+    //candidate edges in the graph that were not pruned
+    val candidate_pairs = mBlocker.calculate(blocks, profileIndex, AProfileDS1, AProfileDS2)
 
-  //evaluation stage
-    candidate_pairs.saveAsObjectFile("/media/sf_uniassignments/BLAST/dblp_acm_metablocking")
-    val eval = new blast.data_processing.evaluation(candidate_pairs)
-    val recal_precission : Tuple2[Double,Double] = eval.get_the_stats()
-    //println("recall=",recal_precission._1,"\tprecision=",recal_precission._2)
-    //rounding to 2 decimal point (percentage)
-    println("Recall: "+(BigDecimal(recal_precission._1).setScale(4, BigDecimal.RoundingMode.HALF_UP).toDouble)*100+"%")
-    println("Precission: "+(BigDecimal(recal_precission._2).setScale(4, BigDecimal.RoundingMode.HALF_UP).toDouble)*100+"%")
+    val groundtruthPath : String = groundtruth.getOrElse("")
+    if(groundtruthPath != ""){
+      //evaluation stage
+      //candidate_pairs.saveAsObjectFile(intermediate)
+
+      val (recall, precision) = evaluation.evaluate(candidate_pairs,groundtruthPath)
+
+      //println("recall=",recal_precission._1,"\tprecision=",recal_precission._2)
+      //rounding to 2 decimal point (percentage)
+      println("Recall: " + (BigDecimal(recall).setScale(4, BigDecimal.RoundingMode.HALF_UP).toDouble) * 100 + "%")
+      println("Precision: " + (BigDecimal(precision).setScale(4, BigDecimal.RoundingMode.HALF_UP).toDouble) * 100 + "%")
+    }
+
+
 
 
 
   }
-
 }
+
+
 

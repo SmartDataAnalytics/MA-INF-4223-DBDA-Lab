@@ -17,7 +17,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
+ * Classes obtained from: http://sourceforge.net/projects/erframework/files/CleanCleanERDatasets/
+ * Modified
  * @author gap2
  */
 
@@ -26,7 +27,7 @@ public class EntityProfile implements Serializable {
     private static final long serialVersionUID = 122354534453243447L;
 
     private final Set<Attribute> attributes;
-    private final String entityUrl;
+    private String entityUrl;
 
     public EntityProfile(String url) {
         entityUrl = url;
@@ -40,6 +41,9 @@ public class EntityProfile implements Serializable {
     public String getEntityUrl() {
         return entityUrl;
     }
+
+    //replaces url id from entity
+    public void setEntityUrl(String newurl) {entityUrl = newurl;}
 
     public int getProfileSize() {
         return attributes.size();
