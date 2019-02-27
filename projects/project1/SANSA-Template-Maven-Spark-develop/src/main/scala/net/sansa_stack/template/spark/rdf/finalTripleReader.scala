@@ -10,7 +10,7 @@ import java.time.ZoneId
 object finalTripleReader {
   val sc = new SparkContext("local[*]", "LoadBalancedMapReduce") 
   val kc = sc.broadcast(2)
-  val threshold = sc.broadcast(0.2)
+  val threshold = sc.broadcast(0.25)
   val partno = sc.accumulator(0)
   var flag = 1
   val sqlContext = new SQLContext(sc)
