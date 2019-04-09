@@ -1,6 +1,6 @@
 ## Lecture Notes
 
-- Introduction: What is Big Data. Major tools used by data scientists. Class overview
+- [Introduction: What is Big Data. Major tools used by data scientists. Class overview](slides/1.Introduction.pdf)
 
 - Spark Fundamentals I
 
