@@ -8,7 +8,7 @@ Worksheet-1: **Setting up environment and getting started with Scala**
 
 * * *
 
-[Dr. Hajira Jabeen](http://sda.cs.uni-bonn.de/dr-hajira-jabeen), [Gezim Sejdiu](http://sda.cs.uni-bonn.de/gezim-sejdiu), [Prof. Dr. Jens Lehmann](http://sda.cs.uni-bonn.de/prof-dr-jens-lehmann)
+[Dr. Hajira Jabeen](http://sda.cs.uni-bonn.de/dr-hajira-jabeen), [Gezim Sejdiu](https://gezimsejdiu.github.io/), [Denis Lukovnikov](http://sda.cs.uni-bonn.de/people/denis-lukovnikov/), [Prof. Dr. Jens Lehmann](http://sda.cs.uni-bonn.de/prof-dr-jens-lehmann)
 
 April 4, 2019
 
