@@ -4,6 +4,6 @@
 
 - [Lab 2: Getting started with Spark + Spark GraphX and Spark SQL operations](WorkSheet-2.md)
 
-- Lab 3: Spark ML and BigDL
+- [Lab 3: Spark ML and BigDL]((WorkSheet-3.md))
 
 - Lab 4: SANSA
