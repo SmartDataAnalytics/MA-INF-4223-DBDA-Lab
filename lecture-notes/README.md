@@ -6,4 +6,4 @@
 
 - [Spark Fundamentals II (Spark ML), BigDL](slides/3.ML_on_Spark_(MLlib_and_BigDL).pdf)
 
-- SANSA – Semantic Analytics Stack
+- [SANSA – Semantic Analytics Stack](slides/4.SANSA_Semantic_Analytics_Stack.pdf)

@@ -6,4 +6,4 @@
 
 - [Lab 3: Spark ML and BigDL](WorkSheet-3.md)
 
-- Lab 4: SANSA
+- [Lab 4: SANSA](WorkSheet-4.md)
