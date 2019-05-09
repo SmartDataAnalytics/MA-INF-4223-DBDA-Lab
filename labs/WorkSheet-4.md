@@ -47,6 +47,5 @@ AT HOME
     - [SANSA-Notebooks](https://github.com/SANSA-Stack/SANSA-Notebooks) with the existing examples.
 
 3.  Further readings
-    - [MLlib: Machine Learning in Apache Spark](http://www.jmlr.org/papers/volume17/15-237/15-237.pdf)
     - [Distributed Semantic Analytics using the SANSA Stack](http://jens-lehmann.org/files/2017/iswc_sansa.pdf) by Jens Lehmann, Gezim Sejdiu, Lorenz Bühmann, Patrick Westphal, Claus Stadler, Ivan Ermilov, Simon Bin, Muhammad Saleem, Axel-Cyrille Ngonga Ngomo and Hajira Jabeen in Proceedings of 16th International Semantic Web Conference – Resources Track (ISWC’2017), 2017.
     - [The Tale of Sansa Spark](http://jens-lehmann.org/files/2017/iswc_pd_sansa.pdf) by Ivan Ermilov, Jens Lehmann, Gezim Sejdiu, Lorenz Bühmann, Patrick Westphal, Claus Stadler, Simon Bin, Nilesh Chakraborty, Henning Petzka, Muhammad Saleem, Axel-Cyrille Ngomo Ngonga, and Hajira Jabeen in Proceedings of 16th International Semantic Web Conference, Poster & Demos, 2017.
